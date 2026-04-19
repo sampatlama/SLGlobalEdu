@@ -213,11 +213,31 @@
         </div>
       </div>
   
-      <div class="contact-form">
-  <!-- Calendly inline widget begin -->
-  <div class="calendly-inline-widget" data-url="https://calendly.com/sampatlama0/30min" style="min-width:320px;height:400px;"></div>
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <!-- Calendly inline widget end -->
+   <div class="contact-form">
+  <div id="gated-step" style="text-align: center;">
+    <img src="img/blueprint-cover.png" alt="Austria Blueprint Cover" style="max-width: 200px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    <h3 style="color: white; margin-bottom: 15px;">Unlock Your Free Blueprint</h3>
+    <button id="download-btn" class="btn-primary" style="border: none; cursor: pointer; width: 100%; padding: 15px; border-radius: 4px; font-size: 16px;">Download Blueprint & Book Now</button>
+  </div>
+
+  <div id="booking-step" style="display:none;">
+    <div class="calendly-inline-widget" data-url="https://calendly.com/sampatlama0/30min" style="min-width:320px;height:400px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </div>
+
+  <script>
+  document.getElementById('download-btn').addEventListener('click', function() {
+    // 1. Trigger PDF download
+    let a = document.createElement('a');
+    a.href = 'Austria_Student_Blueprint.pdf'; 
+    a.download = 'Sampat_Austria_Blueprint.pdf';
+    a.click();
+    
+    // 2. Hide image/button and show Calendly
+    document.getElementById('gated-step').style.display = 'none';
+    document.getElementById('booking-step').style.display = 'block';
+  });
+  </script>
 </div>
 
     </div>
